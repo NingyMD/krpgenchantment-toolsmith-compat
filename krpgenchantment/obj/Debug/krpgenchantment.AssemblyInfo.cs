@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("krpgenchantment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cbce553eb13ee2221ece9bb55e31c1d5e0cbf34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d493020f96e7ea8ca413ab17b131c69f8668eb83")]
 [assembly: System.Reflection.AssemblyProductAttribute("krpgenchantment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("krpgenchantment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

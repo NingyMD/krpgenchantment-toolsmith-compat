@@ -11,7 +11,7 @@ using Vintagestory.API.Server;
 
 namespace KRPGLib.Enchantment.Compat
 {
-    public class ToolsmithSystem
+    public class ToolsmithSystem : ModSystem
     {
         ICoreAPI Api;
         ICoreClientAPI cApi;
@@ -36,21 +36,21 @@ namespace KRPGLib.Enchantment.Compat
             ToolsmithModSystem TSSys = sapi.ModLoader.GetModSystem<ToolsmithModSystem>();
             if (TSSys != null)
             {
+                if (EnchantingConfigLoader.Config?.Debug == true) { Api.Logger.Event("[KRPGEnchantment] Did a thing."); }
             }
         }
 
-        public void ToolsmithReversion(ItemSlot slot, int amount)
+        public void ToolsmithReversion(ICoreAPI Api, ItemSlot slot, int amount)
         {
-            if (Api.ModLoader.GetModSystem("ToolsmithModSystem") != null)
+            if (EnchantingConfigLoader.Config?.Debug == true) { Api.Logger.Event("[KRPGEnchantment] ha."); }
+
+            if ((slot.Itemstack.GetToolhandleForData() != null) && (slot.Itemstack.GetToolhandleCurrentDurability() < slot.Itemstack.GetToolhandleMaxDurability()))
             {
-                if ((slot.Itemstack.GetToolhandleForData() != null) && (slot.Itemstack.GetToolhandleCurrentDurability() < slot.Itemstack.GetToolhandleMaxDurability()))
-                {
-                    slot.Itemstack.SetToolhandleCurrentDurability(slot.Itemstack.GetToolhandleCurrentDurability() + amount);
-                }
-                if ((slot.Itemstack.GetToolbinding != null) && (slot.Itemstack.GetToolbindingCurrentDurability() < slot.Itemstack.GetToolbindingMaxDurability()))
-                {
-                    slot.Itemstack.SetToolbindingCurrentDurability(slot.Itemstack.GetToolbindingCurrentDurability() + amount);
-                }
+                slot.Itemstack.SetToolhandleCurrentDurability(slot.Itemstack.GetToolhandleCurrentDurability() + amount);
+            }
+            if ((slot.Itemstack.GetToolbinding != null) && (slot.Itemstack.GetToolbindingCurrentDurability() < slot.Itemstack.GetToolbindingMaxDurability()))
+            {
+                slot.Itemstack.SetToolbindingCurrentDurability(slot.Itemstack.GetToolbindingCurrentDurability() + amount);
             }
         }
     }
