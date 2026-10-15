@@ -14,8 +14,32 @@ namespace KRPGLib.Enchantment.Compat
     public class ToolsmithSystem
     {
         ICoreAPI Api;
+        ICoreClientAPI cApi;
+        ICoreServerAPI sApi;
 
-        public static void ToolsmithReversion(ItemSlot slot, int amount)
+        public bool ToolsmithSysEnchantCompatActive = false;
+        public void StartClientSide(ICoreClientAPI capi)
+        {
+            if (!(capi is ICoreClientAPI)) return;
+            cApi = capi;
+            Api = capi as ICoreAPI;
+            ToolsmithModSystem TSSys = capi.ModLoader.GetModSystem<ToolsmithModSystem>();
+            if (TSSys != null)
+            {
+            }
+        }
+        public void StartServerSide(ICoreServerAPI sapi)
+        {
+            if (!(sapi is ICoreServerAPI)) return;
+            sApi = sapi;
+            Api = sapi as ICoreAPI;
+            ToolsmithModSystem TSSys = sapi.ModLoader.GetModSystem<ToolsmithModSystem>();
+            if (TSSys != null)
+            {
+            }
+        }
+
+        public void ToolsmithReversion(ItemSlot slot, int amount)
         {
             if (Api.ModLoader.GetModSystem("ToolsmithModSystem") != null)
             {
