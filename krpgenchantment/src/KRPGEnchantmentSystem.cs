@@ -1,15 +1,15 @@
-using System;
 using HarmonyLib;
-using System.Reflection;
-using Vintagestory.API.Config;
-using Vintagestory.API.Common;
-using Vintagestory.API.Server;
-using Vintagestory.GameContent;
-using System.Collections.Generic;
-using Vintagestory.API.Client;
-using Vintagestory.API.MathTools;
 using KRPGLib.Enchantment.Compat;
 using KRPGLib.Enchantment.Net;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Vintagestory.API.Client;
+using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.MathTools;
+using Vintagestory.API.Server;
+using Vintagestory.GameContent;
 
 namespace KRPGLib.Enchantment
 {
@@ -23,6 +23,8 @@ namespace KRPGLib.Enchantment
         public COSystem COSysServer { get; private set; } = null;
         public KRPGWandsSystem WandsSysClient { get; private set; } = null;
         public KRPGWandsSystem WandsSysServer { get; private set; } = null;
+        public ToolsmithSystem ToolsmithSysClient { get; private set; } = null;
+        public ToolsmithSystem ToolsmithSysServer { get; private set; } = null;
         private static Harmony harmony;
         public override void AssetsFinalize(ICoreAPI api)
         {
@@ -78,7 +80,12 @@ namespace KRPGLib.Enchantment
             if (cApi.ModLoader.IsModEnabled("krpgwands") == true)
             {
                 WandsSysClient = new KRPGWandsSystem();
-                WandsSysClient.StartClientSide(Api);
+                WandsSysClient.StartClientSide(cApi);
+            }
+            if (cApi.ModLoader.IsModEnabled("toolsmith") == true)
+            {
+                ToolsmithSysClient = new ToolsmithSystem();
+                ToolsmithSysClient.StartClientSide(cApi);
             }
         }
         /// <summary>
@@ -94,7 +101,12 @@ namespace KRPGLib.Enchantment
             if (sApi.ModLoader.IsModEnabled("krpgwands") == true)
             {
                 WandsSysServer = new KRPGWandsSystem();
-                WandsSysServer.StartServerSide(Api);
+                WandsSysServer.StartServerSide(sApi);
+            }
+            if (sApi.ModLoader.IsModEnabled("toolsmith") == true)
+            {
+                ToolsmithSysServer = new ToolsmithSystem();
+                ToolsmithSysServer.StartServerSide(sApi);
             }
         }
         /// <summary>

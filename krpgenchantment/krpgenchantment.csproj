@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>bin/$(Configuration)/Mods/mod</OutputPath>
-    <VINTAGE_STORY>/run/media/nixy/Games01/Vintagestory</VINTAGE_STORY>
+	<VINTAGE_STORY_DATA Condition="'$(VINTAGE_STORY_DATA)' == ''">$(AppData)/VintagestoryData</VINTAGE_STORY_DATA>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +17,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="krpgwands">
-      <HintPath>../../../Examples/krpgwands_0.7.0/krpgwands.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY_DATA)/Mods/krpgwands_0.7.0/krpgwands.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -25,15 +25,19 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="OverhaullibLegacy">
-      <HintPath>../../../Examples/overhaulliblegacycompat_1.2.0/OverhaullibLegacyCompat.dll</HintPath>
+      <HintPath>$(VINTAGE_STORY_DATA)/Mods/overhaulliblegacycompat_1.2.15/OverhaullibLegacyCompat.dll</HintPath>
       <Private>False</Private>
     </Reference>
-<!--
+	  <!--
     <Reference Include="Overhaullib">
       <HintPath>../../../Examples/overhaullib_2.0.8/overhaullib.dll</HintPath>
       <Private>False</Private>
     </Reference>
 -->
+	<Reference Include="toolsmith">
+		<HintPath>$(VINTAGE_STORY_DATA)/Mods/toolsmith_1.2.19/Toolsmith.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
     <Reference Include="protobuf-net">
       <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
       <Private>False</Private>

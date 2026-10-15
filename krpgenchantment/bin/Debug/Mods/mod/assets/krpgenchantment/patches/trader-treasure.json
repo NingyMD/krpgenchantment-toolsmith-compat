@@ -1,0 +1,86 @@
+[
+  {
+    "file": "game:config/tradelists/trader-treasurehunter",
+    "op": "addmerge",
+    "path": "/selling/list",
+    "value": [
+      {
+        "code": "krpgenchantment:lore-book-normal-darkgreen",
+        "type": "item",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 32,
+          "var": 8
+        },
+        "attributes": {
+          "category": "enchantment"
+        }
+      },
+      {
+        "code": "krpgenchantment:lore-book-normal-darkgray",
+        "type": "item",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 32,
+          "var": 8
+        },
+        "attributes": {
+          "category": "enchantment"
+        }
+      },
+      {
+        "code": "krpgenchantment:lore-book-normal-darkolive",
+        "type": "item",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 32,
+          "var": 8
+        },
+        "attributes": {
+          "category": "enchantment"
+        }
+      },
+      {
+        "code": "krpgenchantment:lore-book-normal-darkbeige",
+        "type": "item",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 32,
+          "var": 8
+        },
+        "attributes": {
+          "category": "enchantment"
+        }
+      },
+      {
+        "code": "game:altar-north",
+        "type": "block",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 32,
+          "var": 8
+        }
+      }
+    ]
+  }
+]
