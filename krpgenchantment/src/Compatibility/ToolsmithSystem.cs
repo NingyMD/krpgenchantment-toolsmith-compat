@@ -1,4 +1,5 @@
 ﻿using KRPGLib.Enchantment;
+using KRPGLib.Wands;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -18,16 +19,16 @@ namespace KRPGLib.Enchantment.Compat
         ICoreServerAPI sApi;
 
         public bool ToolsmithSysEnchantCompatActive = false;
-        public void StartClientSide(ICoreClientAPI capi)
+        public void StartClientSide(ICoreAPI api)
         {
-            if (!(capi is ICoreClientAPI)) return;
+            if (!(api is ICoreClientAPI capi)) return;
         }
-        public void StartServerSide(ICoreServerAPI sapi)
+        public void StartServerSide(ICoreAPI api)
         {
-            if (!(sapi is ICoreServerAPI)) return;
+            if (!(api is ICoreServerAPI sapi)) return;
         }
 
-        public static void ToolsmithReversion(ICoreAPI Api, ItemSlot slot, int amount)
+        public void ToolsmithReversion(ItemSlot slot, int amount)
         {
             if ((slot.Itemstack.GetToolhandleForData() != null) && (slot.Itemstack.GetToolhandleCurrentDurability() < slot.Itemstack.GetToolhandleMaxDurability()))
             {
