@@ -24,7 +24,6 @@ namespace KRPGLib.Enchantment
         bool AllowRifts { get { return Modifiers.GetBool("AllowRifts"); } }
         bool UseHunger { get { return Modifiers.GetBool("UseHunger"); } }
         float HungerRate { get { return Modifiers.GetFloat("HungerRate"); } }
-        ToolsmithSystem ToolsmithSystem;
         /// <summary>
         /// Restores item durability in temporally unstable areas.
         /// </summary>
@@ -63,12 +62,14 @@ namespace KRPGLib.Enchantment
         }
         private ModSystemRifts riftSys;
         private SystemTemporalStability tempStabilitySys;
+        private KRPGEnchantmentSystem EnchantSysCore;
+        private ToolsmithSystem ToolsmithSystemServer => EnchantSysCore?.ToolsmithSysServer;
         public override void Initialize(EnchantmentProperties properties)
         {
             base.Initialize(properties);
             tempStabilitySys = Api.ModLoader.GetModSystem<SystemTemporalStability>();
             riftSys = Api.ModLoader.GetModSystem<ModSystemRifts>();
-            ToolsmithSystem = Api.ModLoader.GetModSystem<KRPGEnchantmentSystem>()?.ToolsmithSysServer;
+            if (Api is ICoreServerAPI sapi) { EnchantSysCore = sapi?.ModLoader?.GetModSystem<KRPGEnchantmentSystem>(); }
         }
         public override void OnEquip(EnchantmentSource enchant, ref EnchantModifiers parameters)
         {
@@ -226,24 +227,7 @@ namespace KRPGLib.Enchantment
                 slot.Itemstack.Attributes.SetInt("durability", remDur);
                 if (EnchantingConfigLoader.Config?.Debug == true) { Api.Logger.Event("[KRPGEnchantment] Restoring {0} durability.", amount); }
             }
-            if (ToolsmithSystem == null && EnchantingConfigLoader.Config?.Debug == true)
-            {
-                Api.Logger.Error("[KRPGEnchantment] Toolsmith compatibility system null during Reversion check!");
-                return;
-            }
-            else if (ToolsmithSystem == null)
-            {
-                return;
-            }
-            else if (EnchantingConfigLoader.Config?.Debug == true)
-            {
-                Api.Logger.Event("[KRPGEnchantment] Toolsmith compatibility system is active.");
-                ToolsmithSystem.ToolsmithReversion(slot, amount);
-            }
-            else
-            {
-                ToolsmithSystem.ToolsmithReversion(slot, amount);
-            }
+            ToolsmithSystemServer?.ToolsmithReversion(slot, amount);
         }
     }
 }
