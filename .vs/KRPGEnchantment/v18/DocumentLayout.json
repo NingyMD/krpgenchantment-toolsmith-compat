@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}|krpgenchantment\\krpgenchantment.csproj|solutionrelative:krpgenchantment\\src\\compatibility\\toolsmithsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}|krpgenchantment\\krpgenchantment.csproj|e:\\the archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\enchantments\\universal\\reversionenchantment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}|krpgenchantment\\krpgenchantment.csproj|solutionrelative:krpgenchantment\\src\\enchantments\\universal\\reversionenchantment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}|krpgenchantment\\krpgenchantment.csproj|e:\\the archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\krpgenchantmentsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2100BC-F653-402A-9FBA-EA463C2BD4FC}|krpgenchantment\\krpgenchantment.csproj|solutionrelative:krpgenchantment\\src\\krpgenchantmentsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,22 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReversionEnchantment.cs",
-              "DocumentMoniker": "E:\\The Archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\Enchantments\\Universal\\ReversionEnchantment.cs",
-              "RelativeDocumentMoniker": "krpgenchantment\\src\\Enchantments\\Universal\\ReversionEnchantment.cs",
-              "ToolTip": "E:\\The Archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\Enchantments\\Universal\\ReversionEnchantment.cs",
-              "RelativeToolTip": "krpgenchantment\\src\\Enchantments\\Universal\\ReversionEnchantment.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAAAOIAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T05:58:54.578Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -42,10 +28,23 @@
               "RelativeDocumentMoniker": "krpgenchantment\\src\\Compatibility\\ToolsmithSystem.cs",
               "ToolTip": "E:\\The Archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\Compatibility\\ToolsmithSystem.cs",
               "RelativeToolTip": "krpgenchantment\\src\\Compatibility\\ToolsmithSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAA9wCgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-15T00:01:15.687Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KRPGEnchantmentSystem.cs",
+              "DocumentMoniker": "E:\\The Archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\KRPGEnchantmentSystem.cs",
+              "RelativeDocumentMoniker": "krpgenchantment\\src\\KRPGEnchantmentSystem.cs",
+              "ToolTip": "E:\\The Archives\\git\\krpgenchantment-toolsmith-compat\\krpgenchantment\\src\\KRPGEnchantmentSystem.cs",
+              "RelativeToolTip": "krpgenchantment\\src\\KRPGEnchantmentSystem.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-15T02:55:42.684Z",
               "EditorCaption": ""
             }
           ]

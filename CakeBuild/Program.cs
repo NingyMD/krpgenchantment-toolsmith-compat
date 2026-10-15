@@ -105,7 +105,7 @@ public sealed class PackageTask : FrostingTask<BuildContext>
         }
         context.Zip($"../Releases/{context.Name}", $"../Releases/{context.Name}_{context.Version}.zip");
         
-        context.CopyFile($"../Releases/{context.Name}_{context.Version}.zip", $"/home/nixy/.config/VintagestoryData/Mods/{context.Name}_{context.Version}.zip");
+        context.CopyFile($"../Releases/{context.Name}_{context.Version}.zip", $"/users/ningy/.config/VintagestoryData/Mods/{context.Name}_{context.Version}.zip");
     }
 }
 
