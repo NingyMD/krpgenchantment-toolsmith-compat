@@ -1,10 +1,4 @@
-﻿using KRPGLib.Enchantment;
-using KRPGLib.Wands;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using Toolsmith;
+﻿using System;
 using Toolsmith.Utils;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -12,23 +6,24 @@ using Vintagestory.API.Server;
 
 namespace KRPGLib.Enchantment.Compat
 {
+    /// <summary>
+    /// Compatibility system for the Toolsmith mod.
+    /// </summary>
     public class ToolsmithSystem
     {
-        ICoreAPI Api;
-        ICoreClientAPI cApi;
         ICoreServerAPI sApi;
-
-        public bool ToolsmithSysEnchantCompatActive = false;
-        public void StartClientSide(ICoreAPI api)
+        public void StartServerSide(ICoreServerAPI sapi)
         {
-            if (!(api is ICoreClientAPI capi)) return;
+            sApi = sapi;
         }
-        public void StartServerSide(ICoreAPI api)
-        {
-            if (!(api is ICoreServerAPI sapi)) return;
-        }
-
-        public void ToolsmithReversion(ItemSlot slot, int amount)
+        /// <summary>
+        /// Processes the reversion enchantment for Toolsmith tools. This method should be called when the reversion enchantment is triggered on a Toolsmith tool to restore its durability.
+        /// </summary>
+        /// <param name="slot"></param>
+        /// <param name="amount"></param>
+        /// <param name="mulH"></param>
+        /// <param name="mulB"></param>
+        public void ProcessReversion(ItemSlot slot, int amount, float mulH, float mulB)
         {
             if ((slot.Itemstack.GetToolhandleForData() != null) && (slot.Itemstack.GetToolhandleCurrentDurability() < slot.Itemstack.GetToolhandleMaxDurability()))
             {
@@ -36,7 +31,7 @@ namespace KRPGLib.Enchantment.Compat
                 int maxDurH = slot.Itemstack.GetToolhandleMaxDurability();
                 if (remDurH < maxDurH)
                 {
-                    remDurH += amount;
+                    remDurH += (int)(amount * mulH);
                     remDurH = Math.Min(remDurH, maxDurH);
                     slot.Itemstack.SetToolhandleCurrentDurability(remDurH);
                 }
@@ -47,7 +42,7 @@ namespace KRPGLib.Enchantment.Compat
                 int maxDurB = slot.Itemstack.GetToolbindingMaxDurability();
                 if (remDurB < maxDurB)
                 {
-                    remDurB += amount;
+                    remDurB += (int)(amount * mulB);
                     remDurB = Math.Min(remDurB, maxDurB);
                     slot.Itemstack.SetToolbindingCurrentDurability(remDurB);
                 }
